@@ -1,11 +1,9 @@
-import $ from 'jquery';
-
-import 'normalize.css';
+// import 'normalize.css';
 import './index.css';
 
-import api from './api';
-import store from './store';
-import bookmarksList from './bookmarks-list';
+import api from './api.js';
+import store from './store.js';
+import bookmarksList from './bookmarks-list.js';
 
 const main = function () {
   api.getItems()
