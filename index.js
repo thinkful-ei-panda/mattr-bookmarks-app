@@ -22,3 +22,66 @@ const store = {
     error: null,
     filter: 0
   };
+
+  function generateHomeScreen(){
+
+  }
+
+  function generateAddScreen(){
+
+  }
+
+  function generateDeleteScreen(){
+
+  }
+
+  function generateOpenItem(){
+
+  }
+
+  
+
+  function renderHomeScreen(){
+
+  }
+
+  function renderAddScreen(){
+
+  }
+
+  function renderDeleteScreen(){
+
+  }
+
+  function renderOpenItem(){
+    
+  }
+
+  function getBookmarks(){
+    
+  }
+
+  function addBookmarks(){
+
+  }
+
+  function deleteBookmarks(){
+
+  }
+
+  function getBookmarksId(){
+
+  }
+
+
+  function handleSubmit(){
+
+  }
+
+  function handleDelete(){
+
+  }
+
+  function handleOpenItem(){
+
+  }
