@@ -18,8 +18,10 @@ const generateItemElement = function (item) {
       ${itemTitle}
       <div class="bookmarks-item-controls">
         <button class="bookmarks-item-toggle js-item-toggle">
-          <span class="button-label">check</span>
+          <span class="button-label">&#9733;</span>
         </button>
+
+
         <button class="bookmarks-item-delete js-item-delete">
           <span class="button-label">delete</span>
         </button>

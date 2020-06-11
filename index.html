@@ -8,22 +8,35 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
   type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
-  <link href="index.css" rel="stylesheet" type="module" />
+  <link href="index.css" rel="stylesheet" type="text/css" />
   </head>
 
 <body>
   <div class="container">
     <h1>Bookmarks</h1>
     <form id="js-bookmark-list-form">
-      <div class="error-container">Some text</div>
+      <div class="error-container">Something went wrong!</div>
       <label for="bookmark-list-entry">Add</label>
       <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="google.com"
         required>
       <button type="submit">Add item</button>
     </form>
-    <div>
-      <input type="checkbox" id="filter-starred" class="filter-starred js-filter-starred" />
-      <label for="filter-starred">Filter</label>
+
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Filter by &#9733; Rating</button>
+      <div id="myDropdown" class="dropdown-content">
+        <button type="toggle" id="myInput" onkeyup="filterFunction()">
+        <input type="checkbox"/>
+        <label for="filter-starred">&#9733; </label>
+        <input type="checkbox"/>
+        <label for="filter-starred">&#9733; &#9733;</label>
+        <input type="checkbox"/>
+        <label for="filter-starred">&#9733; &#9733; &#9733; </label>
+        <input type="checkbox"/>
+        <label for="filter-starred">&#9733; &#9733; &#9733; &#9733; </label>
+        <input type="checkbox"/>
+        <label for="filter-starred">&#9733; &#9733; &#9733; &#9733; &#9733; </label>
+      </div>
     </div>
     <ul class="bookmark-list js-bookmark-list">
     </ul>
