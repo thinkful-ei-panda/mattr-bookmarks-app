@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bookmarks</title>
+  <link rel="shortcut icon" href="#">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Bookmarks</h1>
+    <form id="js-bookmark-list-form">
+      <div class="error-container">Some text</div>
+      <label for="bookmark-list-entry">Add an item</label>
+      <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="e.g., broccoli"
+        required>
+      <button type="submit">Add item</button>
+    </form>
+    <div>
+      <input type="checkbox" id="filter-starred" class="filter-starred js-filter-starred" />
+      <label for="filter-starred">Filter</label>
+    </div>
+    <ul class="bookmark-list js-bookmark-list">
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+
+</body>
+
+</html>
