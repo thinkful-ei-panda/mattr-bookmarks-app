@@ -37,7 +37,7 @@ const generateAddScreen = function () {
   $('main').html(`
   <form class="add-bookmark-form">
   <fieldset>
-  <legend>Add Bookmark Info:</legend>
+  <legend>Add Bookmark</legend>
     <div class="star-rating-in-form">
         <input type="radio" id="star5" name="rating" value="5"/><label for="star5" title="Rocks!">5 stars</label>
         <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>

@@ -58,14 +58,14 @@ h2 {
 li.bookmark-container {
     margin-top: 5px;
     background-color: black;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
 li.bookmark-container> .btn {
     margin-top: 5px;
     margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
     width: 10%;
 }
 
@@ -80,3 +80,17 @@ a{
 div.star-rating-in-form{
     text-align: center;
 }
+
+@media only screen and (min-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+
+    li.bookmark-container {
+        margin-top: 5px;
+        background-color: black;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+  }
