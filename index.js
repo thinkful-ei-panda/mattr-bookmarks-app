@@ -3,7 +3,7 @@
 
 const main = function () {
   console.log(`main is running`)
-  bookmarks.boundFunctions();
+  bookmarks.handleEverything();
 //render();
 };
 
