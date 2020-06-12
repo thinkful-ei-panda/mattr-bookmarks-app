@@ -14,14 +14,14 @@ const generateHomeScreen = function () {
             <h2>GitHub</h2>
             <h2 class="home-stars"> &#9734; &#9734; &#9734; &#9734; &#9734; </h2>
             <p>This is my favorite search engine</p>
-            <a href="https://github.com/" class="btn">Go to GitHub</a>
+            <a href="https://github.com/" class="btn" target="blank">Go to GitHub</a>
             <button class="delete-btn" type="click">Delete</button>
         </li>
         <li class="bookmark-container">
             <h2>YouTube</h2>
             <h2 class="home-stars"> &#9734; &#9734; &#9734; &#9734;</h2>
             <p>This is my favorite video site</p>
-            <a href="https://youtube.com/" class="btn">Go to YouTube</a>
+            <a href="https://youtube.com/" class="btn" target="blank">Go to YouTube</a>
             <button class="delete-btn" type="click">Delete</button>
         </li>
     </ul>
