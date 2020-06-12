@@ -1,6 +1,4 @@
-import data from './index.js';
-
-const BASE_URL = 'https://thinkful-list-api.herokuapp.com/matthew/bookmarks';
+const BASE_URL = 'https://thinkful-list-api.herokuapp.com/matthew';
 
 /**
  * listApiFetch - Wrapper function for native `fetch` to standardize error handling. 
@@ -11,47 +9,58 @@ const BASE_URL = 'https://thinkful-list-api.herokuapp.com/matthew/bookmarks';
  *                      Object { code: Number, message: String }
  */
 const listApiFetch = function (...args) {
+  // setup var in scope outside of promise chain
   let error;
   return fetch(...args)
     .then(res => {
       if (!res.ok) {
+        // if response is not 2xx, start building error object
         error = { code: res.status };
+
+        // if response is not JSON type, place statusText in error object and
+        // immediately reject promise
         if (!res.headers.get('content-type').includes('json')) {
           error.message = res.statusText;
           return Promise.reject(error);
         }
       }
+
+      // otherwise, return parsed JSON
       return res.json();
     })
     .then(data => {
+      // if error exists, place the JSON message into the error object and 
+      // reject the Promise with your error object so it lands in the next 
+      // catch.  IMPORTANT: Check how the API sends errors -- not all APIs
+      // will respond with a JSON object containing message key
       if (error) {
         error.message = data.message;
         return Promise.reject(error);
       }
+
+      // otherwise, return the json as normal resolved Promise
       return data;
     });
 };
 
-const getBookmarks = function () {
-  return listApiFetch(`${BASE_URL}`);
+const getItems = function () {
+  return listApiFetch(`${BASE_URL}/items`);
 };
 
-const createBookmark = function (name) {
-  console.log('createBookmarks is running');
-  const newData= JSON.stringify(data);
-  console.log(typeof(newData));
-  return listApiFetch(BASE_URL, {
+const createItem = function (name) {
+  const newItem = JSON.stringify({ name });
+  return listApiFetch(`${BASE_URL}/items`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: newData
+    body: newItem
   });
 };
 
-const updateBookmark = function (id, updateData) {
+const updateItem = function (id, updateData) {
   const newData = JSON.stringify(updateData);
-  return listApiFetch(`${BASE_URL}/${id}`, {
+  return listApiFetch(`${BASE_URL}/items/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -60,15 +69,15 @@ const updateBookmark = function (id, updateData) {
   });
 };
 
-const deleteBookmark = function (id) {
-  return listApiFetch(`${BASE_URL }/${id}`, {
+const deleteItem = function (id) {
+  return listApiFetch(BASE_URL + '/items/' + id, {
     method: 'DELETE'
   });
 };
 
 export default {
-  getBookmarks,
-  createBookmark,
-  updateBookmark,
-  deleteBookmark
+  getItems,
+  createItem,
+  updateItem,
+  deleteItem
 };

@@ -31,11 +31,6 @@ header, ul {
     color: red;
 }
 
-.btn:active{
-    background-color: white;
-    color: blue;
-}
-
 
 .bookmarks-list {
     padding: 0;
