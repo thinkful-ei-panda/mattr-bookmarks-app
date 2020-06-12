@@ -76,3 +76,7 @@ a{
 .home-stars{
    color: yellow;
 }
+
+div.star-rating-in-form{
+    text-align: center;
+}
