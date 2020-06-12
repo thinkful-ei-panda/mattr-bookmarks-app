@@ -2,49 +2,28 @@
 <html lang="en">
 
 <head>
-  <title>Bookmarks</title>
-  <link rel="shortcut icon" href="#">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bookmarks App</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
-  type="text/css" />
+    type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
   <link href="index.css" rel="stylesheet" type="text/css" />
-  </head>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+</head>
 
 <body>
-  <div class="container">
-    <h1>Bookmarks</h1>
-    <form id="js-bookmark-list-form">
-      <div class="error-container">Something went wrong!</div>
-      <label for="bookmark-list-entry">Add</label>
-      <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="google.com"
-        required>
-      <button type="submit">Add item</button>
-    </form>
-
-    <div class="dropdown">
-      <button onclick="myFunction()" class="dropbtn">Filter by &#9733; Rating</button>
-      <div id="myDropdown" class="dropdown-content">
-        <button type="toggle" id="myInput" onkeyup="filterFunction()">
-        <input type="checkbox"/>
-        <label for="filter-starred">&#9733; </label>
-        <input type="checkbox"/>
-        <label for="filter-starred">&#9733; &#9733;</label>
-        <input type="checkbox"/>
-        <label for="filter-starred">&#9733; &#9733; &#9733; </label>
-        <input type="checkbox"/>
-        <label for="filter-starred">&#9733; &#9733; &#9733; &#9733; </label>
-        <input type="checkbox"/>
-        <label for="filter-starred">&#9733; &#9733; &#9733; &#9733; &#9733; </label>
-      </div>
-    </div>
-    <ul class="bookmark-list js-bookmark-list">
-    </ul>
-  </div>
-
+  <header>
+  <h1>Bookmarks</h1>
+  </header>
+  <!-- Code in the main is to be manipulated -->
+  <main></main>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
-  <script src="index.js" type="module"></script>
-
+  <script src="index.js"></script>
 </body>
 
 </html>
+
