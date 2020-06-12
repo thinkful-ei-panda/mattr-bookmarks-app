@@ -9,6 +9,10 @@ header, ul {
     
 }
 
+h2 {
+
+}
+
 .two-buttons {
     display: flex;
     align-items: center;
@@ -19,6 +23,7 @@ header, ul {
 
 .btn {
     background-color: red;
+    color: white;
     width: 48%;
     height: 2em;
     padding-top: 5px;
@@ -34,6 +39,9 @@ header, ul {
 
 .bookmarks-list {
     padding: 0;
+    margin-top: 5px;
+    /* background-color: black; */
+    color: white;
 
 }
 
@@ -45,4 +53,17 @@ header, ul {
     margin-left: auto;
     margin-top: 10px;
     width: 80%;
+}
+
+li.bookmark-container {
+    margin-top: 5px;
+    background-color: black;
+}
+
+a{
+    text-decoration: none;
+}
+
+.home-stars{
+   color: yellow;
 }

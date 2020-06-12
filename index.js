@@ -1,4 +1,4 @@
-import api from './api';
+import api from './api.js';
 
 const generateHomeScreen = function () {
   $('main').html(`
@@ -10,9 +10,19 @@ const generateHomeScreen = function () {
     </form>
     <section>
     <ul class="bookmarks-list"> 
-        <li>
-            <h2>Name of Bookmark</h2>
-            <h2> </h2>
+        <li class="bookmark-container">
+            <h2>GitHub</h2>
+            <h2 class="home-stars"> &#9734; &#9734; &#9734; &#9734; &#9734; </h2>
+            <p>This is my favorite search engine</p>
+            <a href="https://github.com/">Go to GitHub</a>
+            <button class="delete-btn" type="click">Delete</button>
+        </li>
+        <li class="bookmark-container">
+            <h2>YouTube</h2>
+            <h2 class="home-stars"> &#9734; &#9734; &#9734; &#9734;</h2>
+            <p>This is my favorite video site</p>
+            <a href="https://youtube.com/">Go to GitHub</a>
+            <button class="delete-btn" type="click">Delete</button>
         </li>
     </ul>
     </section>`);
@@ -34,7 +44,6 @@ const generateAddScreen = function () {
         <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
         <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
         <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
-
     </div>
     <label for="bookmark-name">Name</label>
     <input id="bookmark-name" class="bookmark-input" type="text" value="name" placeholder="hi" required />
