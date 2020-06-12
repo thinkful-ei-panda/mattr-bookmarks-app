@@ -1,3 +1,5 @@
+import store from "./store.js";
+
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/matthew/bookmarks';
 
 /**
@@ -9,7 +11,6 @@ const BASE_URL = 'https://thinkful-list-api.herokuapp.com/matthew/bookmarks';
 
 const listApiFetch = function (...args) {
   // setup var in scope outside of promise chain
-
   let error;
   console.log('fetching in process');
   return fetch(...args)
@@ -32,12 +33,15 @@ const listApiFetch = function (...args) {
     });
 };
 
-const getBookmarks = function () {
-  return listApiFetch(`${BASE_URL}`);
+function getBookmarks() {
+  console.log(`gotBookmarks is running`);
+  store.bookmarks = listApiFetch(`${BASE_URL}`);
+  return listApiFetch(`${BASE_URL}`)
 };
 
-const createBookmarks = function (data) {
-  console.log('apis are firing');
+
+const createBookmarks = function(data) {
+  console.log('apis are firing'+ data);
   const newData = JSON.stringify(data);
   return listApiFetch(BASE_URL, {
     method: 'POST',
@@ -57,5 +61,6 @@ const deleteBookmarks = function (id) {
 export default {
   getBookmarks,
   createBookmarks,
-  deleteBookmarks
+  deleteBookmarks,
+
 };
