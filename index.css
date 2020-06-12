@@ -9,8 +9,8 @@ header, ul {
     
 }
 
-h2 {
-
+p {
+margin-bottom: 5px;
 }
 
 .two-buttons {
@@ -58,6 +58,7 @@ h2 {
 li.bookmark-container {
     margin-top: 5px;
     background-color: black;
+    padding-bottom: 5px;
 }
 
 li.bookmark-container> .btn {
