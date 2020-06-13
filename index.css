@@ -99,6 +99,11 @@ div.star-rating-in-form{
     text-align: center;
 }
 
+option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @media only screen and (min-width: 600px) {
       li.bookmark-container {
         margin-top: 5px;
@@ -107,4 +112,14 @@ div.star-rating-in-form{
         justify-content: space-around;
         align-items: center;
     }
-  }
+
+    a.btn {
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    button#delete-btn.btn{
+        width: 100%;
+        margin-left: 10px;
+    }
+}

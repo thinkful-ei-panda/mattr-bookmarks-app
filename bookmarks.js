@@ -8,7 +8,16 @@ const generateHomeScreen = function () {
   <form id="add-filter">
     <ul class="two-buttons">
     <button class="btn" id="add-btn">Add</button>
-    <button class="btn">Filter</button>
+    
+  <select name="star-filter" id="stars" class="btn">
+    <option value="1">&#9734; </option>
+    <option value="2">&#9734; &#9734; </option>
+    <option value="3">&#9734; &#9734; &#9734; </option>
+    <option value="4">&#9734; &#9734; &#9734; &#9734; </option>
+    <option value="5">&#9734; &#9734; &#9734; &#9734; &#9734; </option>
+  </select>
+</form>
+
     </ul>
     </form>
     <section>
