@@ -2,7 +2,7 @@ import store from './store.js';
 import api from './api.js';
 
 const generateHomeScreen = function () {
-  // console.log(store.bookmarks)
+  // console.log(store.bookmarks);
   $('main').html(`
   <form id="add-filter">
     <ul class="two-buttons">
@@ -17,29 +17,38 @@ const generateHomeScreen = function () {
 };
 
 function renderHomeScreen(){
-  console.log(`render home screen is running`)
+  // console.log(`render home screen is running`);
+  console.log(generateBookmarksString(store.bookmarks))
   generateHomeScreen();
 }
 
-const generateBookmarksString = function (bookmarks) {
-  console.log('generateBookmarksString is running');
-  const bookmarksArray = bookmarksList.map((bookmark) => generateBookmarkElement(bookmark));
-  return bookmarks.join('');
-};
-
-const generateBookmarkElement = function (bookmark) {
+const generateBookmarkElement = function(item){
   console.log('generateBookmarkElement is running');
   return `
     <li class="js-bookmark-element">
-    <h2>${bookmark.title}</h2>
-    <h2 class="home-stars"> ${bookmark.rating} </h2>
-    <p>${bookmark.desc}</p>
-    <a href="${bookmark.url}" class="btn" target="blank">${bookmark.title}</a>
+    <h2>${item.title}</h2>
+    <h2 class="home-stars"> ${item.rating} </h2>
+    <p>${item.desc}</p>
+    <a href="${item.url}" class="btn" target="blank">${item.title}</a>
     <button id="delete-btn" class="delete-btn" type="click">Delete</button>
     </li>`;
 };
-  
 
+const generateBookmarksString = function (arr) {
+  console.log('generateBookmarksString is running');
+  const items = arr.map((item) => generateBookmarkElement(item));
+  return items.join('');
+};
+
+
+function renderBookmarksList() {
+  console.log(`renderBookmarksList is running`);
+  let items = [store.bookmarks];
+  console.log(items)
+  const newNew = generateBookmarksString(items);
+ return $("main").append(newNew);
+}
+ 
 
 const generateAddScreen = function () {
   console.log('generateAddScreen is running');
@@ -71,8 +80,6 @@ function renderAddScreen(){
   generateAddScreen();
 }
 
-// $(renderAddScreen);
-
 function handleAddButton() {
   $('main').on('click', '#add-btn', event =>{
     event.preventDefault();
@@ -93,7 +100,7 @@ function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
     event.preventDefault();
     console.log('handlerDeleteButton is running');
-    // return renderHomeScreen();
+    return renderHomeScreen();
   });
 }
 
@@ -110,7 +117,7 @@ const handleSubmitButton = function (){
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
         store.addBookmark(newBookmark);
-        // renderHomeScreen();
+        
       })
       .catch((error) =>{
         store.setError(error.message);
@@ -127,6 +134,7 @@ function handleEverything(){
   handleSubmitButton();
   handleCancelButton();
   handleDeleteButton();
+  renderBookmarksList();
 }
 
 $(handleEverything);

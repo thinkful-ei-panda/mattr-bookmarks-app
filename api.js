@@ -1,4 +1,4 @@
-import store from './store.js';
+// import store from './store.js';
 
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/matthew/bookmarks';
 
@@ -35,9 +35,7 @@ const listApiFetch = function (...args) {
 
 function getBookmarks() {
   console.log('getBookmarks is running');
-  store.bookmarks = listApiFetch(`${BASE_URL}`,{
-    method: 'GET'
-  });
+  return listApiFetch(`${BASE_URL}`);
 }
 
 
