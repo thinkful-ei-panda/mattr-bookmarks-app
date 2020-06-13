@@ -29,8 +29,10 @@ const generateBookmarkElement = function(item){
     <h2>${item.title}</h2>
     <h2 class="home-stars"> ${item.rating} </h2>
     <p>${item.desc}</p>
+    <div class="two-buttons">
     <a href="${item.url}" class="btn" target="blank">${item.title}</a>
-    <button id="delete-btn" class="delete-btn" type="click">Delete</button>
+    <button id="delete-btn" class="delete-btn" type="click" value="${item.id}">Delete</button>
+    </div>
     </li>`;
 };
 
@@ -82,21 +84,28 @@ function handleCancelButton(){
   });
 }
 
+const getItemIdFromElement = function (item) {
+  return $(item)
+    .parent('#delete-btn')
+    .data('item-id');
+};
+
 function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
     event.preventDefault();
     console.log('handlerDeleteButton is running');
-    const id = getItemIdFromElement(event.currentTarget);
-    
-    api.deleteItem(id)
+    const id = $('#delete-btn').val();
+    console.log();
+
+    api.deleteBookmarks(id)
       .then(() => {
         store.findAndDelete(id);
-        render();
+        renderHomeScreen();
       })
       .catch((error) => {
         console.log(error);
         store.setError(error.message);
-        renderError();
+        // renderError();
       });
     return renderHomeScreen();
   });

@@ -17,6 +17,7 @@ h2{
 .bookmarks-container{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 p {
@@ -70,6 +71,8 @@ li.bookmark-container {
     margin-top: 5px;
     background-color: black;
     padding-bottom: 5px;
+    width: 100%;
+
 }
 
 li.bookmark-container> .btn {
