@@ -99,14 +99,35 @@ const getItemIdFromElement = function (item) {
     .data('item-id');
 };
 
+// function handleDeleteButton(){
+//   $('main').on('click', '#delete-btn',  event => {
+//     event.preventDefault();
+//     console.log('handlerDeleteButton is running');
+//     console.log($('#delete-btn').val());
+//     const id = $('#delete-btn').val();
+//     console.log();
+
+//     api.deleteBookmarks(id)
+//       .then(() => {
+//         store.findAndDelete(id);
+//         renderHomeScreen();
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//         store.setError(error.message);
+//         // renderError();
+//       });
+//     return renderHomeScreen();
+//   });
+// }
+
 function handleDeleteButton(){
-  $('main').on('click', '#delete-btn',  event => {
+  $('main').on('click', '#delete-btn',  event => {
     event.preventDefault();
     console.log('handlerDeleteButton is running');
-    console.log($('#delete-btn').val());
-    const id = $('#delete-btn').val();
+    const id = event.target.value;
     console.log();
-
+ 
     api.deleteBookmarks(id)
       .then(() => {
         store.findAndDelete(id);
@@ -117,9 +138,10 @@ function handleDeleteButton(){
         store.setError(error.message);
         // renderError();
       });
-    return renderHomeScreen();
+    renderHomeScreen();
   });
 }
+ 
 
 const handleSubmitButton = function (){
   $('main').on('click', '#add-bookmark',  event => {
