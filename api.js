@@ -35,9 +35,10 @@ const listApiFetch = function (...args) {
 
 function getBookmarks() {
   console.log(`gotBookmarks is running`);
-  store.bookmarks = listApiFetch(`${BASE_URL}`);
-  return listApiFetch(`${BASE_URL}`)
-};
+  store.bookmarks = listApiFetch(BASE_URL);
+  // return listApiFetch(BASE_URL)
+}
+
 
 
 const createBookmarks = function(data) {
