@@ -31,7 +31,7 @@ const generateBookmarkElement = function(item){
     <p>${item.desc}</p>
     <div class="two-buttons">
     <a href="${item.url}" class="btn" target="blank">${item.title}</a>
-    <button id="delete-btn" class="delete-btn" type="click" value="${item.id}">Delete</button>
+    <button id="delete-btn" class="btn" type="click" value="${item.id}">Delete</button>
     </div>
     </li>`;
 };
@@ -94,6 +94,7 @@ function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
     event.preventDefault();
     console.log('handlerDeleteButton is running');
+    console.log($('#delete-btn').val());
     const id = $('#delete-btn').val();
     console.log();
 
