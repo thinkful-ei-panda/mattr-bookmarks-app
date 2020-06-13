@@ -9,10 +9,8 @@ const main = function () {
   api.getBookmarks()
     .then((bookmarks) => {
       bookmarks.forEach((bookmark) => store.addBookmark(bookmark));
-      // bookmarks.renderHomeScreen();
     });
-  bookmarks.handleEverything();
-  // bookmarks.renderHomeScreen();
+  bookmarks.renderHomeScreen();
 };
 
 $(main);

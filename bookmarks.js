@@ -20,13 +20,10 @@ const generateHomeScreen = function () {
 
 function renderHomeScreen(){
   console.log(`render home screen is running`);
-  // console.log(generateBookmarksString(store.bookmarks));
-
   generateHomeScreen();
 }
 
 const generateBookmarkElement = function(item){
-  console.log('generateBookmarkElement is running');
   return `
     <li class="bookmark-container">
     <h2>${item.title}</h2>
@@ -38,15 +35,12 @@ const generateBookmarkElement = function(item){
 };
 
 const generateBookmarksString = function (arr) {
-  console.log('generateBookmarksString is running');
   const items = arr.map((item) => generateBookmarkElement(item));
   return items.join('');
 };
 
 
 const generateAddScreen = function () {
-  console.log('generateAddScreen is running');
-
   $('main').html(`
   <form class="add-bookmark-form">
   <fieldset>
@@ -77,7 +71,6 @@ function renderAddScreen(){
 function handleAddButton() {
   $('main').on('click', '#add-btn', event =>{
     event.preventDefault();
-    console.log('handle Add Button is running');
     return renderAddScreen();
   });
 }
@@ -85,7 +78,6 @@ function handleAddButton() {
 function handleCancelButton(){
   $('main').on('click', '#cancel',  event => {
     event.preventDefault();
-    console.log('handler reset running');
     return renderHomeScreen();
   });
 }
@@ -94,6 +86,18 @@ function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
     event.preventDefault();
     console.log('handlerDeleteButton is running');
+    const id = getItemIdFromElement(event.currentTarget);
+    
+    api.deleteItem(id)
+      .then(() => {
+        store.findAndDelete(id);
+        render();
+      })
+      .catch((error) => {
+        console.log(error);
+        store.setError(error.message);
+        renderError();
+      });
     return renderHomeScreen();
   });
 }
@@ -110,12 +114,11 @@ const handleSubmitButton = function (){
 
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
-        store.addBookmark(newBookmark);
-        
+        store.addBookmark(newBookmark); 
       })
-      .catch((error) =>{
-        store.setError(error.message);
-      });
+      // .catch((error) =>{
+      //   store.setError(error.message);
+      // });
     renderHomeScreen();
   });
 };
