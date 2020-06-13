@@ -1,5 +1,4 @@
 const bookmarks = [];
-console.log(bookmarks);
 let adding = false;
 let error = null;
 let filter = 0;
