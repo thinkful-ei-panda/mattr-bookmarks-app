@@ -1,8 +1,8 @@
 import store from './store.js';
 import api from './api.js';
 
-const generateHomeScreen = function () {
-  let listItemsString = generateBookmarksString(store.bookmarks)
+const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
+  let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks)  : generateBookmarksString(store.bookmarks)
   // console.log(store.bookmarks);
   $('main').html(`
   <form id="add-filter">
@@ -25,6 +25,7 @@ const generateHomeScreen = function () {
     ${listItemsString}
     </ul>
     </section>`);
+  handleStarFilterButton();
 };
 
 function renderHomeScreen(){
@@ -37,10 +38,10 @@ const generateBookmarkElement = function(item){
     <li class="bookmark-container">
     <h2>${item.title}</h2>
     <h2 class="home-stars"> ${item.rating} </h2>
-    <p>${item.desc}</p>
+    <p class="hidden">${item.desc}</p>
     <div class="two-buttons">
-    <a href="${item.url}" class="btn" target="blank">${item.title}</a>
-    <button id="delete-btn" class="btn" type="click" value="${item.id}">Delete</button>
+    <a href="${item.url}" class="btn hidden" target="blank">${item.title}</a>
+    <button id="delete-btn" class="btn hidden" type="click" value="${item.id}">Delete</button>
     </div>
     </li>`;
 };
@@ -92,6 +93,20 @@ function handleCancelButton(){
     return renderHomeScreen();
   });
 }
+
+function handleStarFilterButton(){
+  $('#stars').on('change',  event => {
+    // event.preventDefault();
+    let starArr = store.bookmarks.filter(item => {
+      return item.rating == event.currentTarget.value;
+    });
+    // console.log(starArr);
+    // return renderHomeScreen();
+    generateHomeScreen(starArr);
+    $("#stars").val(event.currentTarget.value)
+  });
+}
+
 
 const getItemIdFromElement = function (item) {
   return $(item)
