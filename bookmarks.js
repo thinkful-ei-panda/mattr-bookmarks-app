@@ -1,5 +1,3 @@
-
-
 import store from './store.js';
 import api from './api.js';
 
@@ -8,33 +6,31 @@ const generateHomeScreen = function () {
   $('main').html(`
   <form id="add-filter">
     <ul class="two-buttons">
-    <button class="btn" class="add-btn">Add</button>
+    <button class="btn" id="add-btn">Add</button>
     <button class="btn">Filter</button>
     </ul>
     </form>
     <section>
     <ul class="bookmarks-list"> 
-    ${generateBookmarksString(api.getBookmarks)}
+    ${generateBookmarksString}
     </ul>
     </section>`);
 };
 
 function renderHomeScreen(){
   console.log(`render home screen is running`)
- 
-//   console.log(store.bookmarks);
   generateHomeScreen();
 }
 
-const generateBookmarksString = function (bookmarksList) {
-  console.log('mapped new list items');
-//  bookmarksList.map(item => console.log(item));
-console.log(bookmarksList.class + "          " + bookmarksList.length);
+const generateBookmarksString = function (bookmarks) {
+  console.log('generateBookmarksString is running');
+ bookmarksList.map(item => console.log(item));
+console.log(bookmarksList);
 //   const bookmarks = bookmarksList.map((bookmark) => generateBookmarkElement(bookmark));
 if(bookmarksList.length > 0)
   {return generateBookmarkElement(bookmarksList);}
 
-//   return bookmarks.join('');
+  return bookmarks.join('');
 };
 
 const generateBookmarkElement = function (bookmark) {
@@ -52,6 +48,8 @@ const generateBookmarkElement = function (bookmark) {
 
 
 const generateAddScreen = function () {
+  console.log('generateAddScreen is running');
+
   $('main').html(`
   <form class="add-bookmark-form">
   <fieldset>
@@ -82,7 +80,7 @@ function renderAddScreen(){
 // $(renderAddScreen);
 
 function handleAddButton() {
-  $('main').on('click', '#add-filter', event =>{
+  $('main').on('click', '#add-btn', event =>{
     event.preventDefault();
     console.log('handle Add Button is running');
     return renderAddScreen();
@@ -114,10 +112,7 @@ const handleSubmitButton = function (){
     newBookmark.desc = $('#desc').val();
     newBookmark.rating = $('input[name=rating]:checked').val()
     console.log(newBookmark);
-    console.log(newBookmark.title);
-    console.log(newBookmark.url);
-    console.log(newBookmark.desc);
-    console.log(newBookmark.rating);
+
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
         store.addBookmark(newBookmark);
@@ -131,6 +126,7 @@ const handleSubmitButton = function (){
 
 
 function handleEverything(){
+  api.getBookmarks();
   renderHomeScreen();
   handleAddButton();
   handleSubmitButton();
