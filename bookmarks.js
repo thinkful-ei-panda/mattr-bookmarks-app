@@ -8,7 +8,7 @@ const generateHomeScreen = function () {
   $('main').html(`
   <form id="add-filter">
     <ul class="two-buttons">
-    <button class="btn" class="add-btn">Add</button>
+    <button class="btn" id="add-btn">Add</button>
     <button class="btn">Filter</button>
     </ul>
     </form>
@@ -82,7 +82,7 @@ function renderAddScreen(){
 // $(renderAddScreen);
 
 function handleAddButton() {
-  $('main').on('click', '#add-filter', event =>{
+  $('main').on('click', '#add-btn', event =>{
     event.preventDefault();
     console.log('handle Add Button is running');
     return renderAddScreen();
