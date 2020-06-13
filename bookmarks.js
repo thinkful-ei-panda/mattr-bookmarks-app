@@ -2,6 +2,7 @@ import store from './store.js';
 import api from './api.js';
 
 const generateHomeScreen = function () {
+  let listItemsString = generateBookmarksString(store.bookmarks)
   // console.log(store.bookmarks);
   $('main').html(`
   <form id="add-filter">
@@ -11,7 +12,8 @@ const generateHomeScreen = function () {
     </ul>
     </form>
     <section>
-    <ul class="bookmarks-list"> 
+    <ul class="two-buttons">
+    ${listItemsString}
     </ul>
     </section>`);
 };
@@ -26,7 +28,7 @@ function renderHomeScreen(){
 const generateBookmarkElement = function(item){
   console.log('generateBookmarkElement is running');
   return `
-    <li class="js-bookmark-element">
+    <li class="bookmark-container">
     <h2>${item.title}</h2>
     <h2 class="home-stars"> ${item.rating} </h2>
     <p>${item.desc}</p>

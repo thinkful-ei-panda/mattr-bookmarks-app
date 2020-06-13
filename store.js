@@ -7,9 +7,9 @@ const findById = function (id) {
   return this.bookmarks.find(currentItem => currentItem.id === id);
 };
 
-const addBookmark = function (bookmark) {
+const addBookmark = function (item) {
   this.adding = !this.adding;
-  this.bookmarks.push(bookmark);
+  this.bookmarks.push(item);
 };
 
 const findAndDelete = function (id) {
