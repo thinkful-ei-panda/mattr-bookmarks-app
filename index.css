@@ -11,12 +11,17 @@ header, ul {
 
 h2{
     text-align: center;
+    color: white;
 }
 
-
+.bookmarks-container{
+    display: flex;
+    flex-direction: column;
+}
 
 p {
 margin-bottom: 5px;
+color: white;
 }
 
 .two-buttons {

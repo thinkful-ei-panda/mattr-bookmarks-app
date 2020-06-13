@@ -12,7 +12,7 @@ const generateHomeScreen = function () {
     </ul>
     </form>
     <section>
-    <ul class="two-buttons">
+    <ul class="bookmarks-container">
     ${listItemsString}
     </ul>
     </section>`);
