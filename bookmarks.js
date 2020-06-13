@@ -19,8 +19,8 @@ const generateHomeScreen = function () {
 };
 
 function renderHomeScreen(){
-  // console.log(`render home screen is running`);
-  console.log(generateBookmarksString(store.bookmarks));
+  console.log(`render home screen is running`);
+  // console.log(generateBookmarksString(store.bookmarks));
 
   generateHomeScreen();
 }
@@ -43,14 +43,6 @@ const generateBookmarksString = function (arr) {
   return items.join('');
 };
 
-
-function renderBookmarksList() {
-  console.log(`renderBookmarksList is running`);
-  let items = [store.bookmarks];
-  console.log(items)
- $("main").append(generateBookmarksString(items));
-}
- 
 
 const generateAddScreen = function () {
   console.log('generateAddScreen is running');
@@ -130,13 +122,11 @@ const handleSubmitButton = function (){
 
 
 function handleEverything(){
-  // api.getBookmarks();
   renderHomeScreen();
   handleAddButton();
   handleSubmitButton();
   handleCancelButton();
   handleDeleteButton();
-  renderBookmarksList();
 }
 
 $(handleEverything);
