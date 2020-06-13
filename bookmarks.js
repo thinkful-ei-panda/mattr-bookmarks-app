@@ -2,7 +2,7 @@ import store from './store.js';
 import api from './api.js';
 
 const generateHomeScreen = function () {
-  console.log(store.bookmarks)
+  // console.log(store.bookmarks)
   $('main').html(`
   <form id="add-filter">
     <ul class="two-buttons">
@@ -12,7 +12,6 @@ const generateHomeScreen = function () {
     </form>
     <section>
     <ul class="bookmarks-list"> 
-    ${generateBookmarksString}
     </ul>
     </section>`);
 };
@@ -24,12 +23,7 @@ function renderHomeScreen(){
 
 const generateBookmarksString = function (bookmarks) {
   console.log('generateBookmarksString is running');
- bookmarksList.map(item => console.log(item));
-console.log(bookmarksList);
-//   const bookmarks = bookmarksList.map((bookmark) => generateBookmarkElement(bookmark));
-if(bookmarksList.length > 0)
-  {return generateBookmarkElement(bookmarksList);}
-
+  const bookmarksArray = bookmarksList.map((bookmark) => generateBookmarkElement(bookmark));
   return bookmarks.join('');
 };
 
@@ -116,17 +110,18 @@ const handleSubmitButton = function (){
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
         store.addBookmark(newBookmark);
-        renderHomeScreen();
+        // renderHomeScreen();
       })
       .catch((error) =>{
         store.setError(error.message);
       });
+    renderHomeScreen();
   });
 };
 
 
 function handleEverything(){
-  api.getBookmarks();
+  // api.getBookmarks();
   renderHomeScreen();
   handleAddButton();
   handleSubmitButton();
