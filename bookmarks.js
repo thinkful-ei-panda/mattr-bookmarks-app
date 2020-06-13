@@ -131,16 +131,23 @@ const handleSubmitButton = function (){
     newBookmark.rating = $('input[name=rating]:checked').val()
     console.log(newBookmark);
 
+    // api.createBookmarks(newBookmark)
+    //   .then((newBookmark) => {
+    //     store.addBookmark(newBookmark); 
+    //   })
+    //   // .catch((error) =>{
+    //   //   store.setError(error.message);
+    //   // });
+    // renderHomeScreen();
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
         store.addBookmark(newBookmark); 
-      })
-      // .catch((error) =>{
-      //   store.setError(error.message);
-      // });
-    renderHomeScreen();
+      }).then(() => renderHomeScreen())
+
+
   });
 };
+
 
 
 function handleEverything(){
