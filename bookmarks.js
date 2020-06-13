@@ -18,7 +18,8 @@ const generateHomeScreen = function () {
 
 function renderHomeScreen(){
   // console.log(`render home screen is running`);
-  console.log(generateBookmarksString(store.bookmarks))
+  console.log(generateBookmarksString(store.bookmarks));
+
   generateHomeScreen();
 }
 
@@ -45,8 +46,7 @@ function renderBookmarksList() {
   console.log(`renderBookmarksList is running`);
   let items = [store.bookmarks];
   console.log(items)
-  const newNew = generateBookmarksString(items);
- return $("main").append(newNew);
+ $("main").append(generateBookmarksString(items));
 }
  
 

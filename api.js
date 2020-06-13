@@ -6,7 +6,7 @@ const BASE_URL = 'https://thinkful-list-api.herokuapp.com/matthew/bookmarks';
  * listApiFetch - Wrapper function for native `fetch` to standardize error handling. 
  * @param {string} url 
  * @param {object} options 
- * @returns {Promise} 'https://thinkful-list-api.herokuapp.com/elias/bookmarks',{method:'POST',body:{"title":"asdf","url":"asdf","desc":"asdf","rating":"5"}}
+ * @returns {Promise} 'https://thinkful-list-api.herokuapp.com/matthew/bookmarks',{method:'POST',body:{"title":"asdf","url":"asdf","desc":"asdf","rating":"5"}}
  */
 
 const listApiFetch = function (...args) {
@@ -37,8 +37,6 @@ function getBookmarks() {
   console.log('getBookmarks is running');
   return listApiFetch(`${BASE_URL}`);
 }
-
-
 
 const createBookmarks = function(data) {
   console.log('createBookmarks is running');
