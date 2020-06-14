@@ -7,9 +7,16 @@ const findById = function (id) {
   return this.bookmarks.find(currentItem => currentItem.id === id);
 };
 
+// const addBookmark = function (item) {
+//   this.adding = !this.adding;
+//   this.bookmarks.push(item);
+// };
+
 const addBookmark = function (item) {
   this.adding = !this.adding;
-  this.bookmarks.push(item);
+  const source = {expanded: false};
+  const returnedTarget = Object.assign(item, source);
+  this.bookmarks.push(returnedTarget);
 };
 
 const findAndDelete = function (id) {
@@ -17,7 +24,8 @@ const findAndDelete = function (id) {
 };
 
 const toggleExpanded = function (item) {
-  return item.expanded === true ? item.expanded=false : item.expanded===true;
+  console.log(item);
+  (item.expanded === false ? item.expanded = true : item.expanded = false )
 };
 
 const setError = function () {

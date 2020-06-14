@@ -3,18 +3,18 @@ import api from './api.js';
 
 const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
   let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks)  : generateBookmarksString(store.bookmarks);
-  // console.log(store.bookmarks);
+  console.log(listItemsString);
   $('main').html(`
   <form id="add-filter">
     <ul class="two-buttons">
     <button class="btn" id="add-btn">Add</button>
     
-  <select name="star-filter" id="stars" class="btn">
-    <option value="1">&#9734; </option>
-    <option value="2">&#9734; &#9734; </option>
-    <option value="3">&#9734; &#9734; &#9734; </option>
-    <option value="4">&#9734; &#9734; &#9734; &#9734; </option>
-    <option value="5">&#9734; &#9734; &#9734; &#9734; &#9734; </option>
+  <select name="star-filter" id="stars" class="home-stars">
+    <option class="home-stars" value="1">&#9734; </option>
+    <option class="home-stars" value="2">&#9734; &#9734; </option>
+    <option class="home-stars" value="3">&#9734; &#9734; &#9734; </option>
+    <option class="home-stars" value="4">&#9734; &#9734; &#9734; &#9734; </option>
+    <option class="home-stars" value="5">&#9734; &#9734; &#9734; &#9734; &#9734; </option>
   </select>
 </form>
 
@@ -34,17 +34,29 @@ function renderHomeScreen(){
 }
 
 const generateBookmarkElement = function(item){
-  return `
+  if(item.expanded === false){
+    return `
     <li class="bookmark-container">
     <h2>${item.title}</h2>
-    <h2 class="home-stars"> ${item.rating} </h2>
+    <h2 class="bookmark-stars"> ${item.rating} </h2>
+    
+    <div class="two-buttons">
+  
+    <button id="expand-btn" class="btn" type="click" value="${item.id}">Expand</button>
+    </div>
+    </li>`;
+  }else{
+    return `
+    <li class="bookmark-container">
+    <h2>${item.title}</h2>
+    <h2 class="bookmark-stars"> ${item.rating} </h2>
     <p class="hidden">${item.desc}</p>
     <div class="two-buttons">
     <a href="${item.url}" id="url-btn" class="hidden" target="blank">${item.title}</a>
     <button id="delete-btn" class="hidden" type="click" value="${item.id}">Delete</button>
     <button id="expand-btn" class="btn" type="click" value="${item.id}">Expand</button>
     </div>
-    </li>`;
+    </li>`; }
 };
 
 const generateBookmarksString = function (arr) {
@@ -86,12 +98,9 @@ function handleExpandButton(){
   $('main').on('click', '#expand-btn',  event => {
     event.preventDefault();
     console.log(`handleExpandButton is running`)
-    // let selectedBookmark = store.findById(event.currentTarget.value);
-    // return store.toggleExpanded(selectedBookmark);
-    $("button.hidden").toggleClass("hidden");
-    $("a.hidden").toggleClass("hidden");
-    $("p.hidden").toggleClass("hidden");
-    
+    let selectedBookmark = store.findById(event.currentTarget.value);
+    store.toggleExpanded(selectedBookmark);
+    return renderHomeScreen();
   });
 }
 

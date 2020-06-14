@@ -93,6 +93,14 @@ a{
 
 .home-stars{
    color: yellow;
+   font-weight: bold;
+   font-size: 1.0em;
+   background-color: red;
+   width: 100%;
+   height: 2em;
+   padding-top: 0px;
+   margin-top: 10px;
+   border-radius: 5px;
 }
 
 div.star-rating-in-form{
