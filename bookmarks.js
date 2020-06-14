@@ -68,7 +68,7 @@ const generateAddScreen = function () {
   <fieldset>
   <legend>Add Bookmark</legend>
     <div class="star-rating-in-form">
-        <input type="radio" id="star" name="rating" value="5"/><label for="star5" required>5 &#9734; </label>
+        <input type="radio" id="star" name="rating" value="5" checked/><label for="star5">5 &#9734; </label>
         <input type="radio" id="star" name="rating" value="4" /><label for="star4">4 &#9734; </label>
         <input type="radio" id="star" name="rating" value="3" /><label for="star3">3 &#9734; </label>
         <input type="radio" id="star" name="rating" value="2" /><label for="star2">2 &#9734; </label>
@@ -77,7 +77,7 @@ const generateAddScreen = function () {
     <label for="bookmark-name">Name</label>
     <input id="bookmark-name" class="bookmark-input" type="text" placeholder="Name of bookmark" required />
     <textarea id="desc" class="bookmark-input" type="text" placeholder="description"/>
-    <input id="url" class="bookmark-input" type="url" placeholder="url" required />
+    <input id="url" class="bookmark-input" type="url" placeholder="url" pattern="https://.*" required />
     <div class="two-buttons">
     <input class="btn" type="submit" id="add-bookmark" required></input>
     <button class="btn" type="click" id="cancel">Cancel</button>
