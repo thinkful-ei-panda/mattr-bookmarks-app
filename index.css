@@ -3,15 +3,29 @@
     margin: 0;
 }
 
+body{
+    background-color: #ffffff;
+}
+
+h1{
+    font-family: 'Righteous', Impact;
+}
+
+main {
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
 header, ul {
     text-align: center;
     list-style: none;
-    
 }
 
 h2{
     text-align: center;
     color: white;
+    font-family: 'Righteous', Impact;
 }
 
 .bookmarks-container{
@@ -25,6 +39,7 @@ h2{
 p {
 margin-bottom: 5px;
 color: white;
+font-family: 'Righteous', Impact;
 }
 
 .two-buttons {
@@ -43,6 +58,7 @@ color: white;
     padding-top: 5px;
     margin-top: 10px;
     border-radius: 5px;
+    font-family: 'Righteous', Impact;
 }
 
 .btn:hover{
@@ -118,7 +134,8 @@ option {
 }
 
 @media only screen and (min-width: 600px) {
-      li.bookmark-container {
+    
+    li.bookmark-container {
         margin-top: 5px;
         background-color: black;
         display: flex;
@@ -136,8 +153,14 @@ option {
         margin-left: 10px;
     }
 
-    .btn, #delete-btn, #expand-btn, #url-btn {
+    #delete-btn, #expand-btn, #url-btn {
         margin-left: 10px;
+    }
+
+    main{
+        width: 50%;
+        margin: auto;
+        border: 4px solid red;
     }
 
 }
