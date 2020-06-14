@@ -5,7 +5,7 @@ const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
   let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks)  : generateBookmarksString(store.bookmarks);
   console.log(listItemsString);
   $('main').html(`
-  <form  class="animate__animated animate__backInDown" id="add-filter">
+  <form class="animate__animated animate__backInDown" id="add-filter">
     <ul class="two-buttons">
     <button class="btn" id="add-btn">Add</button>
     
@@ -67,22 +67,22 @@ const generateBookmarksString = function (arr) {
 
 const generateAddScreen = function () {
   $('main').html(`
-  <form class="add-bookmark-form">
+  <form class="add-bookmark-form animate__animated animate__zoomInDown">
   <fieldset>
   <legend>Add Bookmark</legend>
     <div class="star-rating-in-form">
-        <input type="radio" id="star" name="rating" value="5"/><label for="star5" required>5 stars</label>
-        <input type="radio" id="star" name="rating" value="4" /><label for="star4">4 stars</label>
-        <input type="radio" id="star" name="rating" value="3" /><label for="star3">3 stars</label>
-        <input type="radio" id="star" name="rating" value="2" /><label for="star2">2 stars</label>
-        <input type="radio" id="star" name="rating" value="1" /><label for="star1">1 star</label>
+        <input type="radio" id="star" name="rating" value="5"/><label for="star5" required>5 &#9734; </label>
+        <input type="radio" id="star" name="rating" value="4" /><label for="star4">4 &#9734; </label>
+        <input type="radio" id="star" name="rating" value="3" /><label for="star3">3 &#9734; </label>
+        <input type="radio" id="star" name="rating" value="2" /><label for="star2">2 &#9734; </label>
+        <input type="radio" id="star" name="rating" value="1" /><label for="star1">1 &#9734; </label>
     </div>
     <label for="bookmark-name">Name</label>
     <input id="bookmark-name" class="bookmark-input" type="text" placeholder="Google" required />
     <textarea id="desc" class="bookmark-input" type="text" placeholder="description"/>
     <input id="url" class="bookmark-input" type="url" placeholder="https://www.google.com/" required />
     <div class="two-buttons">
-    <input class="btn" type="submit" id="add-bookmark"></input>
+    <input class="btn" type="submit" id="add-bookmark" required></input>
     <button class="btn" type="click" id="cancel">Cancel</button>
 </div>
   </fieldset>

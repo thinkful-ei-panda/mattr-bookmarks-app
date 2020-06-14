@@ -42,6 +42,10 @@ color: white;
 font-family: 'Righteous', Impact;
 }
 
+legend, label {
+    font-family: 'Righteous', Impact;
+}
+
 .two-buttons {
     display: flex;
     align-items: center;
@@ -61,7 +65,7 @@ font-family: 'Righteous', Impact;
     font-family: 'Righteous', Impact;
 }
 
-.btn:hover{
+#expand-btn:hover , .btn:hover, select:hover{
     background-color: white;
     color: red;
 }
