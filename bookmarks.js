@@ -2,7 +2,7 @@ import store from './store.js';
 import api from './api.js';
 
 const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
-  let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks)  : generateBookmarksString(store.bookmarks)
+  let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks)  : generateBookmarksString(store.bookmarks);
   // console.log(store.bookmarks);
   $('main').html(`
   <form id="add-filter">
@@ -40,8 +40,9 @@ const generateBookmarkElement = function(item){
     <h2 class="home-stars"> ${item.rating} </h2>
     <p class="hidden">${item.desc}</p>
     <div class="two-buttons">
-    <a href="${item.url}" class="btn hidden" target="blank">${item.title}</a>
-    <button id="delete-btn" class="btn hidden" type="click" value="${item.id}">Delete</button>
+    <a href="${item.url}" id="url-btn" class="hidden" target="blank">${item.title}</a>
+    <button id="delete-btn" class="hidden" type="click" value="${item.id}">Delete</button>
+    <button id="expand-btn" class="btn" type="click" value="${item.id}">Expand</button>
     </div>
     </li>`;
 };
@@ -58,7 +59,7 @@ const generateAddScreen = function () {
   <fieldset>
   <legend>Add Bookmark</legend>
     <div class="star-rating-in-form">
-        <input type="radio" id="star" name="rating" value="5"/><label for="star5">5 stars</label>
+        <input type="radio" id="star" name="rating" value="5"/><label for="star5" required>5 stars</label>
         <input type="radio" id="star" name="rating" value="4" /><label for="star4">4 stars</label>
         <input type="radio" id="star" name="rating" value="3" /><label for="star3">3 stars</label>
         <input type="radio" id="star" name="rating" value="2" /><label for="star2">2 stars</label>
@@ -79,6 +80,18 @@ const generateAddScreen = function () {
 function renderAddScreen(){
   generateAddScreen();
 }
+// **************************HANDLER FUNCTIONS***************************
+
+function handleExpandButton(){
+  $('#expand-btn').on('click',  event => {
+    // event.preventDefault();
+    let bookmarkId = event.currentTarget.value;
+    if(bookmarkId){}
+  })
+  // generateHomeScreen(starArr);
+  // $("#expand-btn").val(event.currentTarget.value)
+  
+}
 
 function handleAddButton() {
   $('main').on('click', '#add-btn', event =>{
@@ -98,7 +111,7 @@ function handleStarFilterButton(){
   $('#stars').on('change',  event => {
     // event.preventDefault();
     let starArr = store.bookmarks.filter(item => {
-      return item.rating == event.currentTarget.value;
+      return item.rating >= event.currentTarget.value;
     });
     // console.log(starArr);
     // return renderHomeScreen();
@@ -113,28 +126,6 @@ const getItemIdFromElement = function (item) {
     .parent('#delete-btn')
     .data('item-id');
 };
-
-// function handleDeleteButton(){
-//   $('main').on('click', '#delete-btn',  event => {
-//     event.preventDefault();
-//     console.log('handlerDeleteButton is running');
-//     console.log($('#delete-btn').val());
-//     const id = $('#delete-btn').val();
-//     console.log();
-
-//     api.deleteBookmarks(id)
-//       .then(() => {
-//         store.findAndDelete(id);
-//         renderHomeScreen();
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//         store.setError(error.message);
-//         // renderError();
-//       });
-//     return renderHomeScreen();
-//   });
-// }
 
 function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
