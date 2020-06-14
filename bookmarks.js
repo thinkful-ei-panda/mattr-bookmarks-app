@@ -5,7 +5,7 @@ const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
   let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks)  : generateBookmarksString(store.bookmarks);
   console.log(listItemsString);
   $('main').html(`
-  <form id="add-filter">
+  <form  class="animate__animated animate__backInDown" id="add-filter">
     <ul class="two-buttons">
     <button class="btn" id="add-btn">Add</button>
     
@@ -21,7 +21,7 @@ const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
     </ul>
     </form>
     <section>
-    <ul class="bookmarks-container">
+    <ul class="bookmarks-container animate__animated animate__backInUp"">
     ${listItemsString}
     </ul>
     </section>`);
@@ -129,11 +129,11 @@ function handleStarFilterButton(){
 }
 
 
-const getItemIdFromElement = function (item) {
-  return $(item)
-    .parent('#delete-btn')
-    .data('item-id');
-};
+// const getItemIdFromElement = function (item) {
+//   return $(item)
+//     .parent('#delete-btn')
+//     .data('item-id');
+// };
 
 function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
