@@ -4,6 +4,8 @@ import api from './api.js';
 const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
   let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks)  : generateBookmarksString(store.bookmarks);
   console.log(listItemsString);
+  console.log(filteredBookmarks);
+
   $('main').html(`
   <form class="animate__animated animate__backInDown" id="add-filter">
     <ul class="two-buttons">
@@ -50,10 +52,10 @@ const generateBookmarkElement = function(item){
     <li class="bookmark-container">
     <h2>${item.title}</h2>
     <h2 class="bookmark-stars"> ${item.rating} </h2>
-    <p class="hidden">${item.desc}</p>
+    <p>${item.desc}</p>
     <div class="two-buttons">
-    <a href="${item.url}" id="url-btn" class="hidden" target="blank">${item.title}</a>
-    <button id="delete-btn" class="hidden" type="click" value="${item.id}">Delete</button>
+    <a href="${item.url}" id="url-btn" target="blank">${item.title}</a>
+    <button id="delete-btn" type="click" value="${item.id}">Delete</button>
     <button id="expand-btn" class="btn" type="click" value="${item.id}">Expand</button>
     </div>
     </li>`; }
@@ -171,9 +173,7 @@ const handleSubmitButton = function (){
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
         store.addBookmark(newBookmark); 
-      }).then(() => renderHomeScreen())
-
-
+      }).then(() => renderHomeScreen());
   });
 };
 
