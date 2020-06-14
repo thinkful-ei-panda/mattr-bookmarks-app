@@ -83,14 +83,16 @@ function renderAddScreen(){
 // **************************HANDLER FUNCTIONS***************************
 
 function handleExpandButton(){
-  $('#expand-btn').on('click',  event => {
-    // event.preventDefault();
-    let bookmarkId = event.currentTarget.value;
-    if(bookmarkId){}
-  })
-  // generateHomeScreen(starArr);
-  // $("#expand-btn").val(event.currentTarget.value)
-  
+  $('main').on('click', '#expand-btn',  event => {
+    event.preventDefault();
+    console.log(`handleExpandButton is running`)
+    // let selectedBookmark = store.findById(event.currentTarget.value);
+    // return store.toggleExpanded(selectedBookmark);
+    $("button.hidden").toggleClass("hidden");
+    $("a.hidden").toggleClass("hidden");
+    $("p.hidden").toggleClass("hidden");
+    
+  });
 }
 
 function handleAddButton() {
@@ -109,12 +111,9 @@ function handleCancelButton(){
 
 function handleStarFilterButton(){
   $('#stars').on('change',  event => {
-    // event.preventDefault();
     let starArr = store.bookmarks.filter(item => {
       return item.rating >= event.currentTarget.value;
     });
-    // console.log(starArr);
-    // return renderHomeScreen();
     generateHomeScreen(starArr);
     $("#stars").val(event.currentTarget.value)
   });
@@ -157,16 +156,9 @@ const handleSubmitButton = function (){
     newBookmark.url = $('#url').val();
     newBookmark.desc = $('#desc').val();
     newBookmark.rating = $('input[name=rating]:checked').val()
+    newBookmark.expanded = false;
     console.log(newBookmark);
 
-    // api.createBookmarks(newBookmark)
-    //   .then((newBookmark) => {
-    //     store.addBookmark(newBookmark); 
-    //   })
-    //   // .catch((error) =>{
-    //   //   store.setError(error.message);
-    //   // });
-    // renderHomeScreen();
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
         store.addBookmark(newBookmark); 
@@ -184,6 +176,7 @@ function handleEverything(){
   handleSubmitButton();
   handleCancelButton();
   handleDeleteButton();
+  handleExpandButton();
 }
 
 $(handleEverything);

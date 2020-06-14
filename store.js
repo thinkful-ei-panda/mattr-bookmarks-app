@@ -16,8 +16,8 @@ const findAndDelete = function (id) {
   this.bookmarks = this.bookmarks.filter(currentItem => currentItem.id !== id);
 };
 
-const toggleCheckedFilter = function (filterBy) {
-  this.filter = filterBy;
+const toggleExpanded = function (item) {
+  return item.expanded === true ? item.expanded=false : item.expanded===true;
 };
 
 const setError = function () {
@@ -32,6 +32,6 @@ export default{
   findById,
   addBookmark,
   findAndDelete,
-  toggleCheckedFilter,
+  toggleExpanded,
   setError
 };
