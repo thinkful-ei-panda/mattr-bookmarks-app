@@ -75,9 +75,9 @@ const generateAddScreen = function () {
         <input type="radio" id="star" name="rating" value="1" /><label for="star1">1 &#9734; </label>
     </div>
     <label for="bookmark-name">Name</label>
-    <input id="bookmark-name" class="bookmark-input" type="text" placeholder="Google" required />
+    <input id="bookmark-name" class="bookmark-input" type="text" placeholder="Name of bookmark" required />
     <textarea id="desc" class="bookmark-input" type="text" placeholder="description"/>
-    <input id="url" class="bookmark-input" type="url" placeholder="https://www.google.com/" required />
+    <input id="url" class="bookmark-input" type="url" placeholder="url" required />
     <div class="two-buttons">
     <input class="btn" type="submit" id="add-bookmark" required></input>
     <button class="btn" type="click" id="cancel">Cancel</button>
@@ -155,7 +155,7 @@ function handleDeleteButton(){
  
 
 const handleSubmitButton = function (){
-  $('main').on('click', '#add-bookmark',  event => {
+  $('main').on('submit', '.add-bookmark-form',  event => {
     event.preventDefault();
     const newBookmark = {};
     newBookmark.title = $('#bookmark-name').val();
