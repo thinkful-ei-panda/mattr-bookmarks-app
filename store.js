@@ -28,9 +28,10 @@ const toggleExpanded = function (item) {
   (item.expanded === false ? item.expanded = true : item.expanded = false )
 };
 
-const setError = function () {
-
+const setError = function (msg) {
+  this.error = msg;
 };
+
 
 export default{
   bookmarks,

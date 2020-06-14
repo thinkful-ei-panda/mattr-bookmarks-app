@@ -2,10 +2,7 @@ import store from './store.js';
 import api from './api.js';
 
 const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
-  let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks)  : generateBookmarksString(store.bookmarks);
-  console.log(listItemsString);
-  console.log(filteredBookmarks);
-
+  let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks) : generateBookmarksString(store.bookmarks);
   $('main').html(`
   <form class="animate__animated animate__backInDown" id="add-filter">
     <ul class="two-buttons">
@@ -41,9 +38,7 @@ const generateBookmarkElement = function(item){
     <li class="bookmark-container animate__animated animate__backInUp">
     <h2>${item.title}</h2>
     <h2 class="bookmark-stars"> ${item.rating} </h2>
-    
     <div class="two-buttons">
-  
     <button id="expand-btn" class="btn" type="click" value="${item.id}">Expand</button>
     </div>
     </li>`;
