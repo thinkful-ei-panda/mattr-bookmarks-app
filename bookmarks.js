@@ -23,7 +23,7 @@ const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
     </ul>
     </form>
     <section>
-    <ul class="bookmarks-container animate__animated animate__backInUp"">
+    <ul class="bookmarks-container">
     ${listItemsString}
     </ul>
     </section>`);
@@ -38,7 +38,7 @@ function renderHomeScreen(){
 const generateBookmarkElement = function(item){
   if(item.expanded === false){
     return `
-    <li class="bookmark-container">
+    <li class="bookmark-container animate__animated animate__backInUp">
     <h2>${item.title}</h2>
     <h2 class="bookmark-stars"> ${item.rating} </h2>
     
@@ -49,7 +49,7 @@ const generateBookmarkElement = function(item){
     </li>`;
   }else{
     return `
-    <li class="bookmark-container">
+    <li class="bookmark-container animate__animated animate__pulse">
     <h2>${item.title}</h2>
     <h2 class="bookmark-stars"> ${item.rating} </h2>
     <p>${item.desc}</p>
