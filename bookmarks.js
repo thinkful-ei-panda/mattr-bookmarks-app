@@ -54,9 +54,9 @@ const generateBookmarkElement = function(item){
     <h2 class="bookmark-stars"> ${item.rating} </h2>
     <p>${item.desc}</p>
     <div class="two-buttons">
-    <a href="${item.url}" id="url-btn" target="blank">${item.title}</a>
+    <a href="${item.url}" id="url-btn" target="blank">Go</a>
     <button id="delete-btn" type="click" value="${item.id}">Delete</button>
-    <button id="expand-btn" class="btn" type="click" value="${item.id}">Expand</button>
+    <button id="expand-btn" class="btn" type="click" value="${item.id}">Collapse</button>
     </div>
     </li>`; }
 };
