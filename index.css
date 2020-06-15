@@ -17,8 +17,9 @@ h1{
 
 main {
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: #8cdbe8;
     padding: 10px;
+    border: 4px solid red;
 }
 
 header, ul {
@@ -59,7 +60,7 @@ legend, label {
 }
 
 .btn, #delete-btn, #url-btn {
-    background-color: red;
+    background-color: #fd0100;
     color: white;
     width: 100%;
     height: 2em;
