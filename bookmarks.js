@@ -32,11 +32,16 @@ function renderHomeScreen(){
 }
 
 const generateBookmarkElement = function(item){
+  let starIconArr = [];
+  for(let i = 0; i < item.rating; i++){
+    starIconArr.push('&#9734;');
+  }
+
   if(item.expanded === false){
     return `
     <li class="bookmark-container animate__animated animate__backInUp">
     <h2>${item.title}</h2>
-    <h2 class="bookmark-stars"> ${item.rating} </h2>
+    <h2 class="bookmark-stars"> ${starIconArr.join(' ')} </h2>
     <div class="two-buttons">
     <button id="expand-btn" class="btn" type="click" value="${item.id}">Expand</button>
     </div>
@@ -45,7 +50,7 @@ const generateBookmarkElement = function(item){
     return `
     <li class="bookmark-container animate__animated animate__pulse">
     <h2>${item.title}</h2>
-    <h2 class="bookmark-stars"> ${item.rating} </h2>
+    <h2 class="bookmark-stars"> ${starIconArr.join(' ')} </h2>
     <p>${item.desc}</p>
     <div class="two-buttons">
     <a href="${item.url}" id="url-btn" target="blank">Go</a>
@@ -123,18 +128,10 @@ function handleStarFilterButton(){
   });
 }
 
-
-// const getItemIdFromElement = function (item) {
-//   return $(item)
-//     .parent('#delete-btn')
-//     .data('item-id');
-// };
-
 function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
     event.preventDefault();
     const id = event.target.value;
-    console.log();
  
     api.deleteBookmarks(id)
       .then(() => {
@@ -159,7 +156,6 @@ const handleSubmitButton = function (){
     newBookmark.desc = $('#desc').val();
     newBookmark.rating = $('input[name=rating]:checked').val()
     newBookmark.expanded = false;
-    // console.log(newBookmark);
 
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {

@@ -139,13 +139,13 @@ option {
 
 @media only screen and (min-width: 600px) {
     
-    li.bookmark-container {
+    /* li.bookmark-container {
         margin-top: 5px;
         background-color: black;
         display: flex;
         justify-content: space-around;
         align-items: center;
-    }
+    } */
 
     a.btn {
         width: 100%;
