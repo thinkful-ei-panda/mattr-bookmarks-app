@@ -123,6 +123,10 @@ a{
    border-radius: 5px;
 }
 
+.bookmark-stars {
+    color: yellow;
+}
+
 div.star-rating-in-form{
     text-align: center;
 }

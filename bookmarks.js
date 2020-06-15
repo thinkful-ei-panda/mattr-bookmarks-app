@@ -1,7 +1,7 @@
 import store from './store.js';
 import api from './api.js';
 
-const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
+const generateHomeScreen = function (filteredBookmarks) {
   let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks) : generateBookmarksString(store.bookmarks);
   $('main').html(`
   <form id="add-filter">
