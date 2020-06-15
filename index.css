@@ -37,9 +37,9 @@ h2{
 }
 
 p {
-margin-bottom: 5px;
-color: white;
-font-family: 'Righteous', Impact;
+    margin-bottom: 5px;
+    color: white;
+    font-family: 'Righteous', Impact;
 }
 
 legend, label {
@@ -85,7 +85,6 @@ legend, label {
 .bookmarks-list {
     padding: 0;
     margin-top: 5px;
-    /* background-color: black; */
     color: white;
 
 }
@@ -147,20 +146,7 @@ option {
     justify-content: center;
 }
 
-/* .hidden{
-    display: none;
-} */
-
 @media only screen and (min-width: 600px) {
-    
-    /* li.bookmark-container {
-        margin-top: 5px;
-        background-color: black;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    } */
-
     a.btn {
         width: 100%;
         margin-left: 10px;
