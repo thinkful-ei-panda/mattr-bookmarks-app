@@ -4,7 +4,7 @@ import api from './api.js';
 const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
   let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks) : generateBookmarksString(store.bookmarks);
   $('main').html(`
-  <form class="animate__animated animate__backInDown" id="add-filter">
+  <form id="add-filter">
     <ul class="two-buttons">
     <button class="btn" id="add-btn">Add</button>
     
