@@ -48,7 +48,7 @@ const createBookmarks = function(data) {
 };
 
 const deleteBookmarks = function (id) {
-  console.log(`Deleted this id: ${id}`)
+  // console.log(`Deleted this id: ${id}`)
   return listApiFetch(`${BASE_URL}/${id}`, {
     method: 'DELETE'
   });

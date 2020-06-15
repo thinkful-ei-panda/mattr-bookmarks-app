@@ -7,11 +7,6 @@ const findById = function (id) {
   return this.bookmarks.find(currentItem => currentItem.id === id);
 };
 
-// const addBookmark = function (item) {
-//   this.adding = !this.adding;
-//   this.bookmarks.push(item);
-// };
-
 const addBookmark = function (item) {
   this.adding = !this.adding;
   const source = {expanded: false};
@@ -24,7 +19,6 @@ const findAndDelete = function (id) {
 };
 
 const toggleExpanded = function (item) {
-  console.log(item);
   (item.expanded === false ? item.expanded = true : item.expanded = false )
 };
 

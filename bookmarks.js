@@ -28,7 +28,6 @@ const generateHomeScreen = function (filteredBookmarks, selectedIndex) {
 };
 
 function renderHomeScreen(){
-  console.log(`render home screen is running`);
   generateHomeScreen();
 }
 
@@ -94,7 +93,6 @@ function renderAddScreen(){
 function handleExpandButton(){
   $('main').on('click', '#expand-btn',  event => {
     event.preventDefault();
-    console.log(`handleExpandButton is running`)
     let selectedBookmark = store.findById(event.currentTarget.value);
     store.toggleExpanded(selectedBookmark);
     return renderHomeScreen();
@@ -135,7 +133,6 @@ function handleStarFilterButton(){
 function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
     event.preventDefault();
-    console.log('handlerDeleteButton is running');
     const id = event.target.value;
     console.log();
  
@@ -147,7 +144,6 @@ function handleDeleteButton(){
       .catch((error) => {
         console.log(error);
         store.setError(error.message);
-        // renderError();
       });
     renderHomeScreen();
   });
@@ -163,7 +159,7 @@ const handleSubmitButton = function (){
     newBookmark.desc = $('#desc').val();
     newBookmark.rating = $('input[name=rating]:checked').val()
     newBookmark.expanded = false;
-    console.log(newBookmark);
+    // console.log(newBookmark);
 
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
