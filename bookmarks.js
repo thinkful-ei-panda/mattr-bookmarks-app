@@ -34,16 +34,6 @@ function handleCancelButton(){
   });
 }
 
-// function handleStarFilterButton(){
-//   $('#stars').on('change',  event => {
-//     let starArr = store.bookmarks.filter(item => {
-//       return item.rating >= event.currentTarget.value;
-//     });
-//     generators.generateHomeScreen(starArr);
-//     $("#stars").val(event.currentTarget.value)
-//   });
-// }
-
 function handleDeleteButton(){
   $('main').on('click', '#delete-btn',  event => {
     event.preventDefault();
@@ -62,7 +52,6 @@ function handleDeleteButton(){
   });
 }
  
-
 const handleSubmitButton = function (){
   $('main').on('submit', '.add-bookmark-form',  event => {
     event.preventDefault();
@@ -70,8 +59,8 @@ const handleSubmitButton = function (){
     newBookmark.title = $('#bookmark-name').val();
     newBookmark.url = $('#url').val();
     newBookmark.desc = $('#desc').val();
-    newBookmark.rating = $('input[name=rating]:checked').val()
-    newBookmark.expanded = false;
+    newBookmark.rating = $('input[name=rating]:checked').val();
+    // newBookmark.expanded = false;
 
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
@@ -89,9 +78,12 @@ function bindEventListeners(){
   handleExpandButton();
 }
 
-$(bindEventListeners);
+function render(){
+  bindEventListeners();
+}
+$(render);
 
 export default {
   bindEventListeners,
   renderHomeScreen,
-}
+};

@@ -1,6 +1,4 @@
 import store from './store.js';
-// import api from './api.js';
-import bookmarks from './bookmarks.js';
 
 function generateHomeScreen(filteredBookmarks) {
   let listItemsString = (filteredBookmarks) ? generateBookmarksString(filteredBookmarks) : generateBookmarksString(store.bookmarks);
@@ -92,7 +90,7 @@ function handleStarFilterButton(){
       return item.rating >= event.currentTarget.value;
     });
     generateHomeScreen(starArr);
-    $("#stars").val(event.currentTarget.value)
+    $('#stars').val(event.currentTarget.value)
   });
 }
 
@@ -100,5 +98,4 @@ export default {
   generateHomeScreen,
   generateAddScreen,
   generateBookmarkElement,
-  
 };
