@@ -51,7 +51,7 @@ function handleDeleteButton(){
     renderHomeScreen();
   });
 }
- 
+
 const handleSubmitButton = function (){
   $('main').on('submit', '.add-bookmark-form',  event => {
     event.preventDefault();
@@ -60,7 +60,7 @@ const handleSubmitButton = function (){
     newBookmark.url = $('#url').val();
     newBookmark.desc = $('#desc').val();
     newBookmark.rating = $('input[name=rating]:checked').val();
-    // newBookmark.expanded = false;
+    newBookmark.expanded = false;
 
     api.createBookmarks(newBookmark)
       .then((newBookmark) => {
