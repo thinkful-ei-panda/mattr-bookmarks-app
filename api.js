@@ -10,7 +10,6 @@ const BASE_URL = 'https://thinkful-list-api.herokuapp.com/matthew/bookmarks';
  */
 
 const listApiFetch = function (...args) {
-  // setup var in scope outside of promise chain
   let error;
   return fetch(...args)
     .then(res => {
